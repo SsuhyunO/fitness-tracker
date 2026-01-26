@@ -1,15 +1,14 @@
 server:
-  port: 8081  # 이 서비스는 8081 포트에서 실행됩니다.
+  port: 8081  
 
 spring:
   application:
-    name: activity-service  # 서비스의 이름입니다.
+    name: activity-service  
 
   datasource:
-    # 도커로 띄운 PostgreSQL 주소입니다.
-    url: jdbc:postgresql://localhost:5432/fitness_db
-    username: user
-    password: password
+    url: jdbc:postgresql://localhost:5433/fitness_db
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:

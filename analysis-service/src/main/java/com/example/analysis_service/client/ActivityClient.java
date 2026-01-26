@@ -1,5 +1,6 @@
 package com.example.analysis_service.client;
 
+import com.example.analysis_service.dto.UserProfileResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,4 +12,7 @@ public interface ActivityClient {
 
     @GetMapping("/activities/user/{userId}")
     List<Object> getActivitiesByUserId(@PathVariable("userId") String userId);
+
+    @GetMapping("/users/{userId}") 
+    UserProfileResponse getUserProfile(@PathVariable("userId") String userId);
 }
