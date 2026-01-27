@@ -21,3 +21,11 @@ spring:
         format_sql: true  # SQL을 예쁘게 출력합니다.
         dialect: org.hibernate.dialect.PostgreSQLDialect
         
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ 
+    register-with-eureka: true  
+    fetch-registry: true       
+  instance:
+    prefer-ip-address: true

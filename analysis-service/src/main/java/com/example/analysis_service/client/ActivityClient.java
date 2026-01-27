@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
-// 8081 포트의 activity-service로 전화를 거는 리모컨입니다.
-@FeignClient(name = "activity-service", url = "http://localhost:8081")
+@FeignClient(name = "activity-service")
 public interface ActivityClient {
 
-    @GetMapping("/activities/user/{userId}")
+    @GetMapping("/api/activity/user/search?userId={userId}")
     List<Object> getActivitiesByUserId(@PathVariable("userId") String userId);
 
-    @GetMapping("/users/{userId}") 
+    @GetMapping("/api/user-profile/{userId}") 
     UserProfileResponse getUserProfile(@PathVariable("userId") String userId);
 }

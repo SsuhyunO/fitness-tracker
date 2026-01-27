@@ -1,0 +1,26 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ACTIVITY-SERVICE
+          uri: lb://activity-service
+          predicates:
+            - Path=/activity/**
+          filters:
+            - StripPrefix=1
+        - id: ANALYSIS-SERVICE
+          uri: lb://analysis-service
+          predicates:
+            - Path=/analysis/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
